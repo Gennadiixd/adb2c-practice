@@ -1,6 +1,7 @@
 const withRateLimiter = (fn) => {
   let limit = 20;
   const q = [];
+
   const incLimit = async () => {
     limit++;
     if (q.length) {
@@ -8,6 +9,7 @@ const withRateLimiter = (fn) => {
       dec();
     }
   };
+
   const decLimit = async () => {
     return new Promise((res) => {
       if (limit > 0) {
@@ -24,9 +26,9 @@ const withRateLimiter = (fn) => {
     });
   };
 
-  const limitedFn = async () => {
+  const limitedFn = async (...args) => {
     await decLimit();
-    const result = await fn(limit);
+    const result = await fn(...args);
     await incLimit();
     return result;
   };
