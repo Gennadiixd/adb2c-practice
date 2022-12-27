@@ -1,4 +1,4 @@
-const withRateLimiter = (fn) => {
+export const withRateLimiter = (fn) => {
   let limit = 20;
   const q = [];
 

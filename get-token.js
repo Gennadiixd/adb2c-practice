@@ -30,5 +30,3 @@ export const getToken = async () => {
 
   return data;
 };
-
-getToken().then((data) => console.log(data));

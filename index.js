@@ -1,7 +1,7 @@
 import "isomorphic-fetch"; // or import the fetch polyfill you installed
-import { withRateLimiter } from "./rate-limiter";
-import { uploadUser } from "./upload-user";
-import { users } from "./users";
+import { withRateLimiter } from "./rate-limiter.js";
+import { uploadUser } from "./upload-user.js";
+import { users } from "./users.js";
 
 const uploadUserWithRateLimiter = withRateLimiter(uploadUser);
 
